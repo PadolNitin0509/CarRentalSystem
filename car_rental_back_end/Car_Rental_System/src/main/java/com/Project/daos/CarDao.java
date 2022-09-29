@@ -1,0 +1,14 @@
+package com.Project.daos;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.Project.entities.Car;
+
+public interface CarDao extends JpaRepository<Car, Integer> {
+	//@Query("select * from Car where categoryId = ?1")
+	
+	List<Car> findBycarCategoryId(int id);
+	List<Car> findAll();
+}

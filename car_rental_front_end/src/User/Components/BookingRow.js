@@ -1,0 +1,65 @@
+import React, { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import { url } from "../../Commons/constants";
+import { useHistory } from "react-router";
+function BookingRow({ booking, deleteBooking, bookingDetail }) {
+  //   const [cancelBtn, setCancelBtn] = useState("");
+  //   const [detailsBtn, setDetailsBtn] = useState("");
+
+
+ 
+
+  useEffect(() => {
+
+   
+    
+  });
+
+  return (
+    <tr>
+      <td>{booking.bookingid}</td>
+      <td>{booking.username}</td>
+      <td>{booking.carVarient}</td>
+      <td>{booking.fromDate}</td>
+      <td>{booking.toDate}</td>
+      <td>{new Date(booking.bookingDate).toDateString()}</td>
+
+      <td>
+        <button
+          class="btn btn-danger "
+          id="cancelbtn"
+          onClick={() => {
+            deleteBooking(booking);
+          }}
+        >
+          Cancel
+        </button>
+&nbsp;&nbsp;
+        <button
+          class="btn btn-success"
+          onClick={() => {
+            bookingDetail(booking);
+          }}
+          id="detailsbtn"
+        >
+          Show Details
+        </button>
+      </td>
+      <td>
+      {/* <button
+          class="btn btn-success"
+          onClick={() => {
+            feedback();
+          }}
+          id="detailsbtn"
+        >
+          Feedback
+        </button> */}
+
+<button type="button" class="btn btn-info">Feedback</button>
+      </td>
+    </tr>
+  );
+}
+export default BookingRow;
